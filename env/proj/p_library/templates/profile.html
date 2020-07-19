@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!-- 
+<form method="post">
+
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Update">
+
+</form> -->
+
+Привет, {{username}} <br>
+
+{% if extra %}
+{% for field, data in extra.items %}
+{{field}}: <input type="text" id='{{field}}' value="{{data}}">
+<br>
+{% endfor %}
+{% else %}
+
+<p>Имя: <input type="text" id='first_name' value='{{user.first_name}}'></p>
+<p>Фамилия: <input type="text" id='last_name' value='{{user.last_name}}'></p>
+<p>email: <input type="text" id='email' value='{{user.email}}'></p>
+
+
+
+
+{% endif %}
+
+{% endblock %}

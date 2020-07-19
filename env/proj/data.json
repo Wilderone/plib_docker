@@ -1,0 +1,1 @@
+[{"model": "p_library.author", "pk": 1, "fields": {"full_name": "\u041d\u0438\u043a\u043e\u043b\u0430\u0439 \u0412\u0430\u0441\u0438\u043b\u044c\u0435\u0432\u0438\u0447 \u0413\u043e\u0433\u043e\u043b\u044c", "birth_year": 1809, "country": "RU"}}, {"model": "p_library.author", "pk": 2, "fields": {"full_name": "Knut Hamsun", "birth_year": 1959, "country": "NO"}}]

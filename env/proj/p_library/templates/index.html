@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+
+<title>Список книг</title>
+<div class="welcome">
+    <div>Welcome to {{title}}.</div>
+    <div>Here are {{ books|length }} books from my collection</div>
+</div>
+
+<div class="content">
+    {% for book in books %}
+    <div class="row">
+
+        <div>{{ forloop.counter }}
+            {% if book.cover %}
+            <img src='media/{{book.cover}}' alt="" height="40vh">
+            {% endif %}
+        </div>
+
+        <div> {{ book.title }}</div>
+        <div>{{ book.ISBN }}</div>
+        <div>{{ book.description }}</div>
+        <div>{{ book.year_release }}</div>
+        <div>{{ book.author.full_name }}</div>
+        <div>{{ book.author.country }}</div>
+        <div>{{ book.copy_count }}</div>
+        <div>
+            <form action="/book_increment/" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <input type="hidden" name="id" value="{{ book.id }}" />
+                <input type="submit" value="Увеличить количество">
+            </form>
+            <form action="/book_decrement/" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <input type="hidden" name="id" value="{{ book.id }}" />
+                <input type="submit" value="Уменьшить количество">
+            </form>
+        </div>
+    </div>
+    {% endfor %}
+
+
+</div>
+{% endblock %}
